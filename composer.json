@@ -1,27 +1,24 @@
 {
-    "name": "yuan1994/tp-mailer",
+    "name": "cattong/think-mailer",
     "description": "A powerful and beautiful php mailer for All of ThinkPHP and Other PHP Frameworks based SwiftMailer",
     "keywords": [
-        "tp-mailer",
+        "think-mailer",
         "mailer",
         "phpmailer",
         "swiftmailer",
-        "tp5-mailer",
         "mail",
         "thinkphp",
-        "tp"
+        "thinkphp5"
     ],
     "type": "library",
     "license": "Apache 2.0",
     "authors": [
         {
-            "name": "yuan1994",
-            "email": "tianpian0805@gmail.com",
-            "homepage": "https://github.com/yuan1994/tp-mailer/",
-            "role": "Owner"
+            "name": "cattong",
+            "email": "aronter@gmail.com",
         }
     ],
-    "homepage": "https://github.com/yuan1994/tp-mailer/",
+    "homepage": "https://github.com/cattong/think-mailer/",
     "require": {
         "php": ">=5.4.0",
         "swiftmailer/swiftmailer": "^5.4"
