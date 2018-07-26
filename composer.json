@@ -15,10 +15,10 @@
     "authors": [
         {
             "name": "cattong",
-            "email": "aronter@gmail.com",
+            "email": "aronter@gmail.com"
         }
     ],
-    "homepage": "https://github.com/cattong/think-mailer/",
+    "homepage": "http://www.miniappcms.com",
     "require": {
         "php": ">=5.4.0",
         "swiftmailer/swiftmailer": "^5.4"
