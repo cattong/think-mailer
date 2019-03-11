@@ -1,9 +1,9 @@
-## Tp Mailer
-**一款支持所有PHP框架的优美的邮件发送类**，ThinkPHP系列框架开箱即用，其他框架初始化配置即可使用
+## Think Mailer
+**一款支持所有PHP框架的优美的邮件发送类**，ThinkPHP系列框架【3.1.x,3.2.x,5.0.x,5.1.x】开箱即用，其他框架初始化配置即可使用
 
 基于 SwiftMailer 二次开发, 为 ThinkPHP系列框架量身定制, 使 ThinkPHP 支持邮件模板、纯文本、附件邮件发送以及更多邮件功能, 邮件发送简单到只需一行代码
 
-同时了方便其他框架或者非框架使用, Tp Mailer也非常容易拓展融合到其他框架中, 欢迎大家 `Fork` 和 `Star`, 提交代码让Tp Mailer支持更多框架
+同时了方便其他框架或者非框架使用, think-mailer也非常容易拓展融合到其他框架中, 欢迎大家 `Fork` 和 `Star`, 提交代码让think-mailer支持更多框架
 
 ## 目录 
 * [优雅的发送邮件](#优雅的发送邮件) 
@@ -16,7 +16,7 @@
 * [配置](#配置) 
     * [部分配置详解](#部分配置详解)
 * [使用](#使用) 
-    * [使用Tp Mailer](#使用tp-mailer)
+    * [使用think-mailer](#使用think-mailer)
     * [创建实例](#创建实例)
     * [设置收件人](#设置收件人)
     * [设置发件人](#设置发件人)
@@ -49,43 +49,43 @@
 
 
 ## 优雅的发送邮件
-**ThinkPHP5 示例**
+**ThinkPHP5.0.x / 5.1.x 示例**
 ```
 use mailer\tp5\Mailer;
 
 $mailer = Mailer::instance();
-$mailer->from('tianpian0805@gmail.com', 'yuan1994')
+$mailer->from('10086@qq.com@qq.com', 'cattong')
     ->to('your-mail@domain.com')
     ->subject('纯文本测试')
-    ->text('欢迎您使用Tp Mailer')
+    ->text('欢迎您使用think-mailer')
     ->send();
 ```
 你也可以这样: **ThinkPHP3.2.3 示例**
 ```
-require_once '/path/to/tp-mailer/src/autoload.php';
+require_once '/path/to/think-mailer/src/autoload.php';
 
 use mailer\tp32\Mailer;
 
 $mailer = Mailer::instance();
-$mailer->from('tianpian0805@gmail.com', 'yuan1994')
+$mailer->from('10086@qq.com', 'cattong')
     ->to('your-mail@domain.com')
     ->subject('多行文本测试')
     ->line('PHPer们: ')
-    ->line('欢迎你们使用Tp Mailer, 如果使用感觉很方面请给个Star, 也欢迎大家Fork帮忙完善')
+    ->line('欢迎你们使用think-mailer, 如果使用感觉很方面请给个Star, 也欢迎大家Fork帮忙完善')
     ->line()
-    ->line('yuan1994 <tianpian0805@gmail.com ' . date('Y-m-d'))
+    ->line('cattong <10086@qq.com ' . date('Y-m-d'))
     ->attach('/path/to/文件名.pdf', '自定义文件名.pdf')
     ->send();
 ```
 你还可以这样: **ThinkPHP3.1.3 示例**
 ```
-require_once '/path/to/tp-mailer/src/autoload.php';
+require_once '/path/to/think-mailer/src/autoload.php';
 
 use mailer\tp31\Mailer;
 
 $mailer = Mailer::instance();
 $mailer->send(function($mailer, $message) {
-    $mailer->to('tianpian0805@gmail.com')
+    $mailer->to('10086@qq.com')
         ->subject('使用框架模板引擎渲染模板测试')
         ->view('mail:test', array(
             'param1' => '参数1',
@@ -100,28 +100,28 @@ $mailer->send(function($mailer, $message) {
 ### 使用 Composer 安装 (强烈推荐):
 支持 `psr-4` 规范, 开箱即用
 ```
-composer require yuan1994/tp-mailer
+composer require cattong/think-mailer
 ```
 
 ### github下载 或 直接手动下载源码:
 需手动引入自动载入文件
 
 #### 下载文件:
-git clone https://github.com/yuan1994/tp-mailer tp-mailer
+git clone https://github.com/cattong/think-mailer think-mailer
 
 git clone https://github.com/swiftmailer/swiftmailer swiftmailer
 
 或者点击直接下载:
 
-[https://github.com/yuan1994/tp-mailer/archive/master.zip](https://github.com/yuan1994/tp-mailer/archive/master.zip)
+[https://github.com/cattong/think-mailer/archive/master.zip](https://github.com/cattong/think-mailer/archive/master.zip)
 
 [https://github.com/swiftmailer/swiftmailer/archive/5.x.zip](https://github.com/swiftmailer/swiftmailer/archive/5.x.zip)
 
 #### 移动文件夹:
-然后将两个项目分别手动命名为 `tp-mailer` 和 `swiftmailer`, 放在自己项目的扩展类库文件夹里, 这两个文件夹必须在同一目录, 目录结构大概如下所示:
+然后将两个项目分别手动命名为 `think-mailer` 和 `swiftmailer`, 放在自己项目的扩展类库文件夹里, 这两个文件夹必须在同一目录, 目录结构大概如下所示:
 ```
 扩展目录
-├── tp-mailer
+├── think-mailer
 │   └── src
 ├── swiftmailer
 │   ├── lib
@@ -132,7 +132,7 @@ git clone https://github.com/swiftmailer/swiftmailer swiftmailer
 #### 引入自动载入文件:
 使用时引入或者全局自动引入
 
-`require_once '/path/to/tp-mailer/src/autoload.php`;
+`require_once '/path/to/think-mailer/src/autoload.php`;
 
 
 ## 配置
@@ -153,7 +153,7 @@ return [
         'left_delimiter'  => '{', // 模板变量替换左定界符, 可选, 默认为 {
         'right_delimiter' => '}', // 模板变量替换右定界符, 可选, 默认为 }
         'log_driver'      => '', // 日志驱动类, 可选, 如果启用必须实现静态 public static function write($content, $level = 'debug') 方法
-        'log_path'        => '', // 日志路径, 可选, 不配置日志驱动时启用默认日志驱动, 默认路径是 /path/to/tp-mailer/log, 要保证该目录有可写权限, 最好配置自己的日志路径
+        'log_path'        => '', // 日志路径, 可选, 不配置日志驱动时启用默认日志驱动, 默认路径是 /path/to/think-mailer/log, 要保证该目录有可写权限, 最好配置自己的日志路径
         'embed'           => 'embed:', // 邮件中嵌入图片元数据标记
 ];
 ```
@@ -162,7 +162,7 @@ return [
 可选值可以是字符串、数组、对象。如果是字符串，只能是 `smtp|sendmail|mail`，即内置的三种邮件驱动；如果是数组，必须是可以实例调用的方法，例如 `['mailer\\lib\\Transport', 'createSmtpDriver']` ，即是调用的 `(new mailer\lib\Transport)->createSmtpDriver()` 方法，如果是对象，就是返回的一个 `Swift_Transport` 对象，详情请查看 SwiftMailer 官网
 
 #### log_left_delimiter & right_delimiter
-该值为内置模板变量 (调用`text()`,`raw()`,`line()`,`html()`方式时传递的变量) 定界值，例如默认定界值时 `{name}`， 如果变量为 `['name' => 'tp-mailer']`，那么 `{name}` 会被替换为 `tp-mailer`，加入模板中变量占位符是 `{$name}`，那么此时可以修改左定界符为 `{$`，此时 `{$name}` 也能被正常替换为 `tp-mailer`
+该值为内置模板变量 (调用`text()`,`raw()`,`line()`,`html()`方式时传递的变量) 定界值，例如默认定界值时 `{name}`， 如果变量为 `['name' => 'think-mailer']`，那么 `{name}` 会被替换为 `think-mailer`，加入模板中变量占位符是 `{$name}`，那么此时可以修改左定界符为 `{$`，此时 `{$name}` 也能被正常替换为 `think-mailer`
 
 #### log_driver
 日志驱动，如果不配置则为类库自带简单的日志驱动 `mailer\lib\log\File`，可自定义配置为框架的日志驱动，例如 `'log_driver' => '\\think\\Log'`，日志驱动类必须实现静态方法 `write`，例如:
@@ -175,7 +175,7 @@ public static function write($content, $level = 'debug')
 ```
 
 #### log_path
-日志驱动为默认是日志存储路径，不配置默认为 `tp-mailer/log/`，例如可配置为 `ROOT_PATH . 'runtime/log/'`
+日志驱动为默认是日志存储路径，不配置默认为 `think-mailer/log/`，例如可配置为 `ROOT_PATH . 'runtime/log/'`
 
 #### embed
 图片内联嵌入标识，请参考 [将图片作为元数据嵌入到邮件中](#将图片作为元数据嵌入到邮件中)
@@ -183,16 +183,16 @@ public static function write($content, $level = 'debug')
 ## 使用
 > 以下使用及方法兼容所有框架, 包括 ThinkPHP5, ThinkPHP3.2, ThinkPHP3.1, 唯一有所区别的是 ThinkPHP3.2 和 ThinkPHP3.1 不支持composer自动载入, 需手动引入自动载入文件, 使用时引入或者全局自动引入:
 
-> `require_once '/path/to/tp-mailer/src/autoload.php';`
+> `require_once '/path/to/think-mailer/src/autoload.php';`
 
 > 使用use时, ThinkPHP5 的Mailer类的命名空间是 `mailer/tp5/Mailer`, ThinkPHP3.2 的命名空间是 `mailer/tp32/Mailer`, ThinkPHP3.1 的命名空间是  `mailer/tp31/Mailer`
 
 以下示例以 ThinkPHP5 里使用为例, 其他框架完全一样
 
-### 使用Tp Mailer
+### 使用think-mailer
 ```
 // 不支持自动载入的框架请手动引入自动载入文件
-// require_once '/path/to/tp-mailer/src/autoload.php';
+// require_once '/path/to/think-mailer/src/autoload.php';
 
 use mailer\tp5\Mailer
 ```
@@ -222,18 +222,18 @@ $mailer = Mailer::instance('sendmail');
 ### 设置收件人
 以下几种方式任选一种
 ```
-$mailer->to(['tianpian0805@gmail.com']);
-$mailer->to(['tianpian0805@gmail.com' => 'yuan1994']);
-$mailer->to('tianpian0805@gmail.com', 'yuan1994');
-$mailer->to(['tianpian0805@qq.com', 'tianpian0805@gmail.com' => 'yuan1994']);
-$mailer->to(['tianpian0805@qq.com', 'tianpian0805@gmail.com', 'tianpian0805@163.com']);
+$mailer->to(['10086@qq.com']);
+$mailer->to(['10086@qq.com' => 'cattong']);
+$mailer->to('10086@qq.com', 'cattong');
+$mailer->to(['tianpian0805@qq.com', '10086@qq.com' => 'cattong']);
+$mailer->to(['tianpian0805@qq.com', '10086@qq.com', 'tianpian0805@163.com']);
 ```
 
 ### 设置发件人
 发件人邮箱地址必须和配置项里一致, 默认会自动设置发件地址 (配置里的addr) 和发件人 (配置里的name)
 ```
-$mailer->from('tianpian0805@gmail.com', 'yuan1994');
-$mailer->from(['tianpian0805@gmail.com' => 'yuan1994']);
+$mailer->from('10086@qq.com', 'cattong');
+$mailer->from(['10086@qq.com' => 'cattong']);
 ```
 
 ### 设置邮件主题
@@ -243,47 +243,47 @@ $mailer->subject('邮件主题');
 
 ### 设置邮件内容 - HTML
 ```
-$mailer->html('<p>欢迎使用Tp Mailer</p>');
+$mailer->html('<p>欢迎使用think-mailer</p>');
 ```
 
 或者使用变量替换HTML内容
 ```
-$mailer->html('<p>欢迎使用{name}</p>', ['name' => 'Tp Mailer']);
+$mailer->html('<p>欢迎使用{name}</p>', ['name' => 'think-mailer']);
 ```
 
 ### 设置邮件内容 - 纯文本
 ```
-$mailer->text('欢迎使用Tp Mailer');
+$mailer->text('欢迎使用think-mailer');
 ```
 
 还有另外一个用法完全相同的同名方法
 ```
-$mailer->raw('欢迎使用Tp Mailer');
+$mailer->raw('欢迎使用think-mailer');
 ```
 
 或者使用变量替换纯文本内容
 ```
-$mailer->text('欢迎使用{name}', ['name' => 'Tp Mailer']);
+$mailer->text('欢迎使用{name}', ['name' => 'think-mailer']);
 ```
 
 你也可以很方便的设置多行文本, 直接回车换行或者使用 `line()` 方法, 支持多次调用
 ```
 $mailer->line('尊敬的 访客: ');
-$mailer->line('   欢迎您使用Tp Mailer');
+$mailer->line('   欢迎您使用think-mailer');
 $mailer->line(); // 不传值默认输出空行
-$mailer->line('yuan1994 ' . date('Y-m-d') );
+$mailer->line('cattong ' . date('Y-m-d') );
 // 以上历程输出
 /***************
 尊敬的 访客: 
-   欢迎您使用Tp Mailer
+   欢迎您使用think-mailer
    
-yuan1994 2016-12-01
+cattong 2016-12-01
 ****************/
 ```
 
 `line()` 也支持使用变量替换纯文本内容
 ```
-$mailer->text('欢迎使用{name}', ['name' => 'Tp Mailer']);
+$mailer->text('欢迎使用{name}', ['name' => 'think-mailer']);
 ```
 
 ### 设置邮件内容 - 模板
@@ -296,7 +296,7 @@ $mailer->view('admin@mail/register', ['account' => $account, 'name' => $name]);
 ### 将图片作为元数据嵌入到邮件中
 邮件内容中包含图片的, 可以直接指定 `img` 标签的 `src` 属性为远程图片地址, 此处图片地址必须为远程图片地址, 必须为一个带域名的完整图片链接, 这似乎很麻烦, 所以你还可以将图片作为元数据嵌入到邮件中, 至于其他文件是否也可以嵌入请自己尝试, 详情请参考 [SwiftMailer Embedding Inline Media Files](http://swiftmailer.org/docs/messages.html#embedding-inline-media-files)
 
-下面介绍一下 `tp-mailer` 如何快速简便的将图片元数据嵌入到邮件中:
+下面介绍一下 `think-mailer` 如何快速简便的将图片元数据嵌入到邮件中:
 
 #### 配置嵌入标签
 嵌入元数据需要在模板赋值或者使用 `html()` 传递变量时, 给变量添加特殊的标签, 该嵌入标签默认为 `embed:`, 你可以修改配置文件中 `embed` 项, 修改为你想要的形式
@@ -314,7 +314,7 @@ $mailer->view('admin@mail/register', ['account' => $account, 'name' => $name]);
 #### 示例
 ```
 Mailer::instance()
-    ->to('tianpian0805@gmail.com', 'yuan1994') 
+    ->to('10086@qq.com', 'cattong') 
     ->subject('测试邮件模板中嵌入图片元数据')
     ->view('index@mail/index', [
         'date' => date('Y-m-d H:i:s'),     
@@ -334,7 +334,7 @@ Mailer::instance()
     <title>测试邮件</title>
 </head>
 <body>
-<p>尊敬的yuan1994:</p>
+<p>尊敬的cattong:</p>
 <p>     这是一封模板测试邮件</p>
 <p>{$date}</p>
 <p>
@@ -346,7 +346,7 @@ Mailer::instance()
 在 HTML 中使用一样:
 ```
 Mailer::instance()
-    ->to('tianpian0805@gmail.com', 'yuan1994') 
+    ->to('10086@qq.com', 'cattong') 
     ->subject('测试邮件模板中嵌入图片元数据')
     ->html('<img src="{image}" />图片测试', [
         'embed:image' => ROOT_PATH . 'image.jpg',
@@ -434,7 +434,7 @@ $mailer->send();
 使用匿名函数, $mailer是 `Mailer` 对象, $message是 `Swift_Message` 对象
 ```
 $mailer->send(function ($mailer, $message) {
-    $mailer->to('tianpian0805@gmail.com')
+    $mailer->to('10086@qq.com')
         ->line('你好')
         ->line('这是一封测试邮件')
         ->subject('测试邮件');
@@ -444,7 +444,7 @@ $mailer->send(function ($mailer, $message) {
 ```
 $mailer->send(
     function ($mailer, $message) {
-        $mailer->to('tianpian0805@gmail.com')
+        $mailer->to('10086@qq.com')
             ->line('你好')
             ->line('这是一封测试邮件')
             ->subject('测试邮件');
@@ -462,7 +462,7 @@ $mailer->send(
 ```
 $mailer->send(
     function ($mailer, $message) {
-        $mailer->to('tianpian0805@gmail.com')
+        $mailer->to('10086@qq.com')
             ->line('你好')
             ->line('这是一封测试邮件')
             ->subject('测试邮件');
@@ -482,7 +482,7 @@ $mailer->send(
 
 以上所有方法 (除最后发送的方法 `send()`) 都支持连贯调用
 ```
-$mailer->to('tianpian0805@gmail.com')
+$mailer->to('10086@qq.com')
     ->subject('邮件主题')
     ->text('邮件内容')
     ->send();
@@ -491,7 +491,7 @@ $mailer->to('tianpian0805@gmail.com')
 如果执行过邮件发送过邮件发送之后, 需要重新初始化
 ```
 // 第一次发送
-$mailer->to('tianpian0805@gmail.com')
+$mailer->to('10086@qq.com')
     ->subject('邮件主题')
     ->text('邮件内容')
     ->send();
@@ -579,7 +579,7 @@ Mailer::addMethod('view', function ($template, $param = [], $config = [])
 
 // 不用use mailer\tp5\Mailer，直接使用mailer\lib\Mailer调用view方法发送邮件
 $ret = Mailer::instance()
-        ->to('tianpian0805@gmail.com')
+        ->to('10086@qq.com')
         ->subject('测试邮件')
         ->view('index@mail/index', [
             'date' => date('Y-m-d H:i:s'),
@@ -661,7 +661,7 @@ Mailer::addMethod('view', function ($template, $param = [], $config = [])
 
 // 第三步：发送邮件
 $ret = Mailer::instance()
-        ->to('tianpian0805@gmail.com')
+        ->to('10086@qq.com')
         ->subject('测试邮件')
         ->view('index@mail/index', [
             'date' => date('Y-m-d H:i:s'),
@@ -670,7 +670,7 @@ $ret = Mailer::instance()
         
 // 第三步 (2)：如果你不需要使用view方法，可以忽略第二步
 $ret = Mailer::instance()
-        ->to('tianpian0805@gmail.com')
+        ->to('10086@qq.com')
         ->subject('测试邮件')
         ->html('<img src="{image}"/>图片测试', [
             'embed:image' => 'http://image34.360doc.com/DownloadImg/2011/08/2222/16275597_64.jpg'
@@ -678,7 +678,7 @@ $ret = Mailer::instance()
         ->send();
 ```
 
-OK, 此时你就能在你的框架中使用 Tp Mailer 了, 如果你还想做一件事 - Fork && Pull, 那就更好, 希望能一起完善 Tp Mailer
+OK, 此时你就能在你的框架中使用 think-mailer 了, 如果你还想做一件事 - Fork && Pull, 那就更好, 希望能一起完善 think-mailer
 
 
 ## 中文文件名乱码问题
@@ -696,7 +696,7 @@ $mailer->attach(ROOT_PATH . 'foo.ext', function($attachment, $mailer) {
 
 
 ## Issues
-如果有遇到问题请提交 [issues](https://github.com/yuan1994/tp-mailer/issues)
+如果有遇到问题请提交 [issues](https://github.com/cattong/think-mailer/issues)
 
 
 ## License
