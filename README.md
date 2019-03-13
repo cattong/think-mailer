@@ -49,6 +49,17 @@
 
 
 ## 优雅的发送邮件
+**ThinkPHP5.1.x 示例**
+```
+use mailer\tp51\Mailer;
+
+$mailer = Mailer::instance();
+$mailer->from('10086@qq.com@qq.com', 'cattong')
+    ->to('your-mail@domain.com')
+    ->subject('纯文本测试')
+    ->text('欢迎您使用think-mailer')
+    ->send();
+```
 **ThinkPHP5.0.x / 5.1.x 示例**
 ```
 use mailer\tp5\Mailer;
