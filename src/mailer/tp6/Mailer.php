@@ -8,14 +8,14 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0
  */
 
-namespace mailer\tp51;
+namespace mailer\tp6;
 
-use think\View;
+use think\facade\View;
 use think\facade\Config as ThinkConfig;
 
 /**
  * Class Mailer
- * @package mailer\tp5
+ * @package mailer\tp6
  */
 class Mailer extends \mailer\lib\Mailer
 {
@@ -30,7 +30,7 @@ class Mailer extends \mailer\lib\Mailer
      */
     public function view($template, $param = [], $config = [])
     {
-        $view = View::instance(ThinkConfig::get('template'), ThinkConfig::get('view_replace_str'));
+        $view = View::instance(ThinkConfig::get('template'), ThinkConfig::get('tpl_replace_string'));
         // 处理变量中包含有对元数据嵌入的变量
         foreach ($param as $k => $v) {
             $this->embedImage($k, $v, $param);

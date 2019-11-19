@@ -1,5 +1,5 @@
 ## Think Mailer
-**一款支持所有PHP框架的优美的邮件发送类**，ThinkPHP系列框架【3.1.x,3.2.x,5.0.x,5.1.x】开箱即用，其他框架初始化配置即可使用
+**一款支持所有PHP框架的优美的邮件发送类**，ThinkPHP系列框架【3.1.x,3.2.x,5.0.x,5.1.x,6.0.x】开箱即用，其他框架初始化配置即可使用
 
 基于 SwiftMailer 二次开发, 为 ThinkPHP系列框架量身定制, 使 ThinkPHP 支持邮件模板、纯文本、附件邮件发送以及更多邮件功能, 邮件发送简单到只需一行代码
 
@@ -49,6 +49,17 @@
 
 
 ## 优雅的发送邮件
+**ThinkPHP6.0.x 示例**
+```
+use mailer\tp6\Mailer;
+
+$mailer = Mailer::instance();
+$mailer->from('10086@qq.com@qq.com', 'cattong')
+    ->to('your-mail@domain.com')
+    ->subject('纯文本测试')
+    ->text('欢迎您使用think-mailer')
+    ->send();
+```
 **ThinkPHP5.1.x 示例**
 ```
 use mailer\tp51\Mailer;
@@ -60,7 +71,7 @@ $mailer->from('10086@qq.com@qq.com', 'cattong')
     ->text('欢迎您使用think-mailer')
     ->send();
 ```
-**ThinkPHP5.0.x / 5.1.x 示例**
+**ThinkPHP5.0.x**
 ```
 use mailer\tp5\Mailer;
 
